@@ -81,7 +81,7 @@ The app uses Legend State for reactive state management with the following store
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/plurit-assessment.git
+   git clone git@github.com:varun-git-personal/plurit-assessment.git
    cd plurit-assessment
    ```
 
