@@ -29,20 +29,85 @@ Plurit is a mobile application built with React Native and Expo that allows user
 ## 📁 Project Structure
 
 plurit-assessment/
-├── app/ # Main application code
-│ ├── (app)/ # Authenticated app screens
-│ │ ├── (tabs)/ # Tab navigation screens
-│ │ ├── events/ # Event detail screens
-│ │ └── categories/ # Category screens
-│ ├── (auth)/ # Authentication screens
-│ └── components/ # Shared UI components
-├── assets/ # Static assets (images, fonts)
-├── lib/ # Core functionality
-│ ├── db/ # Database setup and schema
-│ ├── state/ # State management stores
-│ └── constants/ # App constants
-├── types/ # TypeScript type definitions
-└── drizzle/ # Database migrations
+├── app/
+│   ├── (app)/
+│   │   ├── (tabs)/
+│   │   │   ├── account.tsx
+│   │   │   ├── bookings.tsx
+│   │   │   ├── index.tsx
+│   │   │   ├── search.tsx
+│   │   │   ├── wishlist.tsx
+│   │   │   └── _layout.tsx
+│   │   ├── events/
+│   │   │   ├── [id]/
+│   │   │   │   ├── bookSeats.tsx
+│   │   │   │   └── index.tsx
+│   │   │   └── _layout.tsx
+│   │   ├── categories/
+│   │   │   ├── [id].tsx
+│   │   │   └── _layout.tsx
+│   │   └── _layout.tsx
+│   ├── (auth)/
+│   │   ├── login.tsx
+│   │   └── onboarding.tsx
+│   ├── components/
+│   │   ├── CategoryCard.tsx
+│   │   ├── EventCard.tsx
+│   │   ├── EventDetail.tsx
+│   │   ├── TariffBadge.tsx
+│   │   └── ... (other components)
+│   ├── _layout.tsx
+│   ├── +html.tsx
+│   └── +not-found.tsx
+├── assets/
+│   ├── images/
+│   │   ├── logo.png
+│   │   ├── adaptive-icon.png
+│   │   ├── favicon.png
+│   │   ├── icon.png
+│   │   └── splash-icon.png
+│   └── fonts/
+├── lib/
+│   ├── constants/
+│   │   ├── icons.ts
+│   │   └── tariffs.ts
+│   ├── db/
+│   │   ├── init.ts
+│   │   ├── schema.ts
+│   │   └── seeds.ts
+│   └── state/
+│       ├── useAuthStore.ts
+│       ├── useBookingsStore.ts
+│       ├── useEventsStore.ts
+│       ├── useFirstTimeStore.ts
+│       ├── useLocationStore.ts
+│       └── useWishlistStore.ts
+├── types/
+│   ├── enrichedEvents.ts
+│   └── events.ts
+├── drizzle/
+│   ├── meta/
+│   ├── migrations/
+│   └── ... (migration files)
+├── .expo/
+├── .vscode/
+├── android/
+├── ios/
+├── node_modules/
+├── .gitignore
+├── app.json
+├── babel.config.js
+├── drizzle.config.ts
+├── expo-env.d.ts
+├── global.css
+├── index.js
+├── metro.config.js
+├── nativewind-env.d.ts
+├── package.json
+├── package-lock.json
+├── README.md
+├── tailwind.config.js
+└── tsconfig.json
 
 ## 🗄️ Data Model
 
@@ -89,13 +154,19 @@ The app uses Legend State for reactive state management with the following store
    npx expo install
    ```
 
-3. Pre-build the app before running.
+3. Generate the migrations.
+
+   ```bash
+   npm run generate
+   ```
+
+4. Pre-build the app before running.
 
    ```bash
    npx expo prebuild --clean
    ```
 
-4. Run on iOS or Android:
+5. Run on iOS or Android:
 
    ```bash
    npm run ios
